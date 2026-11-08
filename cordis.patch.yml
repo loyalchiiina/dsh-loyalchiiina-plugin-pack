@@ -1,0 +1,70 @@
+# dsh-loyalchiiina-all-in-one — 聚合 bundle 层（dsh.bundle.patch 指向本文件）
+#
+# 本包只做「按名挂载」：lib/index.js 只有 `export {}`，自身不注册任何服务、
+# 工具、路由或 UI；所有行为都来自下面 insert 的 14 个独立子包。
+#
+# ── 两条硬约束 ────────────────────────────────────────────────────────────
+# 1) entry id 统一加 `suite-` 前缀。子包自带的 cordis.patch.yml 用的 id 就是
+#    自己的包名（如 `dsh-artifact-linker`），若这里也用包名，用户一旦同时把
+#    子包列进 dsh.profile.bundles，同一 id 会被两个层各插一次 → 触发
+#    `duplicate loader entry id`（市场更新时被差分闸门回滚）。前缀化彻底规避。
+# 2) 本文件只写 `insert:`，不写任何 `disabled:` / `config:` 覆盖。
+#    所有子包一律跑各自默认配置（子包 patch 里的 config 块就是默认值镜像）。
+#    要调参数：在 profile 级 cordis.patch.yml 里按 entry id 追加 config，
+#    或者直接改本文件对应条目（改插件自己的 bundle patch 更稳）。
+#
+# ── 刻意不搬的两段（与 dsh-deepseek-web-free 自带 patch 的差异）────────────
+# a) `agent-default-model` 的 provider/model 覆盖：那会把用户默认模型强行改成
+#    deepseek-web，属于「替用户做选择」，聚合包不接管默认模型。
+# b) `deepseek-web-free-tui`（name: dsh-deepseek-web-free/tui）：终端 UI 半边，
+#    桌面端 / Web 端不需要；需要 TUI 的人单独装 dsh-deepseek-web-free。
+# 因此本文件是 14 条 entry（一个组件一条），不是 16 条。
+#
+# ── 层序（决定「组件开关」怎么写）─────────────────────────────────────────
+# 层顺序：bundle:* → user-patch → home-patch（后层按 id last-wins 覆盖）。
+# 关掉某个组件：在 profile 的 cordis.patch.yml 里写
+#     - id: suite-voice-alert
+#       disabled: true
+
+- insert:
+    - id: suite-artifact-linker
+      name: dsh-artifact-linker
+
+    - id: suite-browser-hub
+      name: dsh-browser-hub
+
+    - id: suite-chat-image-lightbox
+      name: dsh-chat-image-lightbox
+
+    - id: suite-console-sentinel
+      name: dsh-console-sentinel
+
+    - id: suite-deepseek-web-free
+      name: dsh-deepseek-web-free
+
+    - id: suite-font-enhancer
+      name: dsh-font-enhancer
+
+    - id: suite-lit-fetch
+      name: dsh-lit-fetch
+
+    - id: suite-skill-browser
+      name: dsh-skill-browser
+
+    - id: suite-agent-team-auto-orchestrator
+      name: dsh-agent-team-auto-orchestrator
+
+    - id: suite-todo-float-ball
+      name: dsh-todo-float-ball
+
+    - id: suite-voice-alert
+      name: dsh-voice-alert
+
+    - id: suite-archive-favorites-forge
+      name: dsh-archive-favorites-forge
+
+    - id: suite-model-fold
+      name: dsh-model-fold
+
+    - id: suite-schedule-calendar
+      name: dsh-schedule-calendar
