@@ -1,4 +1,4 @@
-# dsh-loyalchiiina-all-in-one
+# dsh-loyalchiiina-plugin-pack
 
 An **aggregate bundle package** for DSH (DeepSeek Harness): install 14 standalone plugins in one go, or pick any single one on its own.
 
@@ -31,7 +31,7 @@ All 14 child packages are resolved from **published npm versions** (caret ranges
 
 ```powershell
 # whole bundle (dependencies only)
-pnpm add dsh-loyalchiiina-all-in-one
+pnpm add dsh-loyalchiiina-plugin-pack
 # a single component, without the bundle
 pnpm add dsh-todo-float-ball
 ```

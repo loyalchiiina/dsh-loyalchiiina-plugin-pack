@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "DSH Plugin Suite (loyalchiiina)",
+    "title": "DSH Plugin Pack (loyalchiiina)",
     "description": "Installs 14 DSH plugins in one bundle: artifact path linker, browser hub, chat image lightbox, console sentinel, DeepSeek Web provider, font enhancer, literature fetch, skill browser, agent-team auto orchestrator, todo float ball, voice alert, archive & favourites forge, model fold, schedule calendar."
   }
 }

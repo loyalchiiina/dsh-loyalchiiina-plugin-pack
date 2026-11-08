@@ -1,4 +1,4 @@
-# dsh-loyalchiiina-all-in-one — 聚合 bundle 层（dsh.bundle.patch 指向本文件）
+# dsh-loyalchiiina-plugin-pack — 聚合 bundle 层（dsh.bundle.patch 指向本文件）
 #
 # 本包只做「按名挂载」：lib/index.js 只有 `export {}`，自身不注册任何服务、
 # 工具、路由或 UI；所有行为都来自下面 insert 的 14 个独立子包。

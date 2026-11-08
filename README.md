@@ -1,4 +1,4 @@
-# dsh-loyalchiiina-all-in-one
+# dsh-loyalchiiina-plugin-pack
 
 DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 14 个独立插件一起挂上，也可以只挑其中一个单独装。
 
@@ -39,7 +39,7 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 14 
 
 ```powershell
 # 只做依赖安装（不改任何 profile 配置）
-pnpm add dsh-loyalchiiina-all-in-one
+pnpm add dsh-loyalchiiina-plugin-pack
 ```
 
 要真正挂进 DSH，还需要把聚合包列进 **profile 的 `dsh.profile.bundles`**（它的 `dsh.bundle.patch` 才会被合并）：
@@ -48,7 +48,7 @@ pnpm add dsh-loyalchiiina-all-in-one
 // ~/.dsh/profiles/<profile>/package.json
 "dsh": {
   "profile": {
-    "bundles": ["dsh-loyalchiiina-all-in-one"]
+    "bundles": ["dsh-loyalchiiina-plugin-pack"]
   }
 }
 ```
@@ -67,7 +67,7 @@ pnpm add dsh-todo-float-ball
 
 ### 🔴 不要同时启用两者
 
-同一个 profile 里**不要**把 `dsh-loyalchiiina-all-in-one` 和它包含的某个子包**同时**列进 `dsh.profile.bundles`：那样同一个插件会被两个 bundle 层各挂一次，插件会注册两遍。
+同一个 profile 里**不要**把 `dsh-loyalchiiina-plugin-pack` 和它包含的某个子包**同时**列进 `dsh.profile.bundles`：那样同一个插件会被两个 bundle 层各挂一次，插件会注册两遍。
 （entry id 因为统一加了 `suite-` 前缀而不会撞 `duplicate loader entry id`，但重复注册本身仍然是错的。）
 
 ### 改完怎么生效
@@ -99,7 +99,7 @@ pnpm add dsh-todo-float-ball
 ## 四、目录结构
 
 ```
-dsh-loyalchiiina-all-in-one/
+dsh-loyalchiiina-plugin-pack/
 ├── package.json          # dsh.bundle.patch + 14 个 dependencies
 ├── cordis.patch.yml      # dsh.bundle.patch 指向它：- insert: 14 条 entry
 ├── lib/
@@ -140,7 +140,7 @@ dsh-loyalchiiina-all-in-one/
 
 ## English
 
-`dsh-loyalchiiina-all-in-one` is an **aggregate bundle package** for DSH (DeepSeek Harness): install 14 standalone DSH plugins with one command, or pick any single one on its own.
+`dsh-loyalchiiina-plugin-pack` is an **aggregate bundle package** for DSH (DeepSeek Harness): install 14 standalone DSH plugins with one command, or pick any single one on its own.
 
 - The bundle itself ships **no behaviour**: `lib/index.js` is only `export {}` — no services, tools, routes or UI.
 - All functionality comes from the 14 child packages inserted by `cordis.patch.yml` (declared as `dsh.bundle.patch`).
@@ -153,7 +153,7 @@ dsh-loyalchiiina-all-in-one/
 **Install**
 
 ```powershell
-pnpm add dsh-loyalchiiina-all-in-one
+pnpm add dsh-loyalchiiina-plugin-pack
 ```
 
 Then list it in the profile's `dsh.profile.bundles` array so its `dsh.bundle.patch` gets merged. Changes to `package.json` / `cordis.patch.yml` / profile bundles take effect after a **full DSH client restart**; a child package's client bundle only needs a **Ctrl+Shift+R** hard refresh.
