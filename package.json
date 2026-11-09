@@ -1,6 +1,6 @@
 {
   "name": "dsh-loyalchiiina-plugin-pack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DSH 插件聚合 bundle：一次装齐 14 个独立插件（产物路径联动 / 浏览器中枢 / 图片灯箱 / 控制台哨兵 / DeepSeek Web 提供方 / 字体增强 / 轻量抓取 / 技能浏览器 / 智能体团队自动编排 / Todo 悬浮球 / 语音提醒 / 收藏归档 / 模型折叠 / 日程日历）。本包自身不含任何行为，只按名挂载子包。适配 DSH 内核 0.2.2-rc.1。 / Aggregates 14 standalone DSH plugins into one bundle; the bundle itself ships no behaviour and only mounts the child packages. Adapts the DSH kernel 0.2.2-rc.1.",
   "type": "module",
   "main": "lib/index.js",
