@@ -138,6 +138,25 @@ dsh-loyalchiiina-plugin-pack/
 
 ---
 
+## 八、发布前必跑（维护者）
+
+本仓库的本地开发树里额外挂了一条**本地私有组件**（源码不进 npm，只靠本机目录联结合成解析）。发布副本里绝不能带它，否则 npm 用户会加载到一个不存在的包。为此本仓库带两个脚本，**缺一不可**：
+
+| 顺序 | 命令 | 角色 | 作用 |
+|---|---|---|---|
+| 1 | `node scripts/strip-private.mjs --stage` | **剥离** | 从 `cordis.patch.yml` / `package.json` 删掉那条私有 entry，产出可发布副本 `.private-build/stage/`（只写新目录，绝不改本地原件） |
+| 2 | `node scripts/prepublish-check.mjs --dir .private-build/stage` | **门禁** | 断言 A：patch yml 里私有组件 entry id 出现次数 = 0；断言 B：敏感串（本机用户名、本机绝对路径、私有组件名等，清单见脚本 `SENSITIVE_STRINGS`）在「即将进包的文件」里命中 = 0 处 |
+
+**只有第 2 步输出 `PREPUBLISH-CHECK: PASS`（退出码 0）才允许发版**；输出 `FAIL`（退出码 1）即硬性禁止发布，先回到第 1 步。
+
+- 「即将进包的文件」= `package.json` 的 `files` 白名单展开后的文本文件，脚本会把实际扫描清单逐行打印出来供核对。
+- 想先自查本地工作树，可跑 `node scripts/prepublish-check.mjs --dir .`：本地私有组件仍在，**这一步预期输出 `FAIL`** —— 不是脚本坏了，而正是门禁生效的证据：它只对「剥离后的发布副本」放行。
+- 两个脚本只随本 GitHub 仓库分发（不在 npm 包的 `files` 白名单内），npm 用户拿到的包不含维护脚本。
+
+> 剥离与门禁是**两个动作**：`strip-private` 负责产出干净的发布副本，`prepublish-check` 负责证明它真的干净。只跑前者、不跑后者，等于「改了但没验」。
+
+---
+
 ## English
 
 `dsh-loyalchiiina-plugin-pack` is an **aggregate bundle package** for DSH (DeepSeek Harness): install 14 standalone DSH plugins with one command, or pick any single one on its own.
