@@ -62,4 +62,4 @@ The bundle ships **no config overrides**; every child runs its own defaults. Add
 5. One entry per component, `name` = the child package name; no paths, no version pins.
 6. All JSON/YAML/JS files are UTF-8 **without BOM**.
 
-Status: `0.1.0`, published to npm and GitHub. MIT licensed.
+Status: `0.1.1`, published to npm and GitHub. MIT licensed.
