@@ -127,13 +127,13 @@ dsh-loyalchiiina-plugin-pack/
 
 ## 六、版本策略
 
-- 聚合包自身版本 `0.1.0`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
+- 聚合包自身版本 `0.1.1`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
 - 聚合包**不锁死**子包版本：修 bug 直接 `pnpm update` 即可，不必等聚合包发版。
 - 子包出现 breaking change 时，聚合包升 **minor** 并在 CHANGELOG 写清影响。
 
 ## 七、状态与许可
 
-- 当前版本 `0.1.0`：已发布到 npm 与 GitHub。
+- 当前版本 `0.1.1`：已发布到 npm 与 GitHub。
 - License: MIT。
 
 ---
