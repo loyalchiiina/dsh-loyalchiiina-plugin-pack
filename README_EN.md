@@ -1,31 +1,35 @@
 # dsh-loyalchiiina-plugin-pack
 
-An **aggregate bundle package** for DSH (DeepSeek Harness): install 14 standalone plugins in one go, or pick any single one on its own.
+Repository: [loyalchiiina/dsh-loyalchiiina-plugin-pack](https://github.com/loyalchiiina/dsh-loyalchiiina-plugin-pack) · Stars welcome ⭐
+
+An **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalone plugins in one go, or pick any single one on its own.
 
 - The bundle ships **no behaviour of its own** — `lib/index.js` is just `export {}`.
-- Everything comes from the 14 entries inserted by `cordis.patch.yml` (`dsh.bundle.patch`), each pointing at an independent npm child package.
+- Everything comes from the 15 entries inserted by `cordis.patch.yml` (`dsh.bundle.patch`), each pointing at an independent npm child package.
 - Adapts the DSH kernel `0.2.2-rc.1`.
 
-## Components (14)
+## Components (15)
 
-| # | Package | What it does | Bundle entry id |
-|---|---|---|---|
-| 1 | `dsh-artifact-linker` | Turns declared artifact paths into one-click chips; resident absolute-path rules | `suite-artifact-linker` |
-| 2 | `dsh-browser-hub` | Sidebar browser upgrade: search engines, bookmarks, folders, 360/Chrome bookmark import | `suite-browser-hub` |
-| 3 | `dsh-chat-image-lightbox` | Full-screen image lightbox, thumbnail grid, TIFF/HEIC transcoding, delivery rule | `suite-chat-image-lightbox` |
-| 4 | `dsh-console-sentinel` | Windows console-window sentinel: preview-then-close, whitelist, solver protection | `suite-console-sentinel` |
-| 5 | `dsh-deepseek-web-free` | Unofficial DeepSeek Web provider + embedded web panel | `suite-deepseek-web-free` |
-| 6 | `dsh-font-enhancer` | Per-region font/colour/line-height DIY with presets and themes | `suite-font-enhancer` |
-| 7 | `dsh-lit-fetch` | Literature search + PDF download (Crossref/OpenAlex/Sci-Hub/Unpaywall) | `suite-lit-fetch` |
-| 8 | `dsh-skill-browser` | Browse, search and govern the local skill library | `suite-skill-browser` |
-| 9 | `dsh-agent-team-auto-orchestrator` | Team-orchestration law injection plus a tool-level gate | `suite-agent-team-auto-orchestrator` |
-| 10 | `dsh-todo-float-ball` | Floating todo progress ring and list for the current session | `suite-todo-float-ball` |
-| 11 | `dsh-voice-alert` | Spoken "done / failed" alerts at turn end, 20 built-in sounds | `suite-voice-alert` |
-| 12 | `dsh-archive-favorites-forge` | Favourite, batch-archive, export conversations; guarded deletion | `suite-archive-favorites-forge` |
-| 13 | `dsh-model-fold` | Three-column cascade model picker with per-model liveness probing | `suite-model-fold` |
-| 14 | `dsh-schedule-calendar` | Schedule centre: calendar, multi-city weather, holidays, reminders | `suite-schedule-calendar` |
+| # | Package | What it does | Bundle entry id | GitHub / Star |
+|---|---|---|---|---|
+| 1 | `dsh-artifact-linker` | Turns declared artifact paths into one-click chips; resident absolute-path rules | `suite-artifact-linker` | [loyalchiiina/dsh-artifact-linker](https://github.com/loyalchiiina/dsh-artifact-linker) · ⭐ 2 |
+| 2 | `dsh-browser-hub` | Sidebar browser upgrade: search engines, bookmarks, folders, 360/Chrome bookmark import | `suite-browser-hub` | [loyalchiiina/dsh-browser-hub](https://github.com/loyalchiiina/dsh-browser-hub) · ⭐ 1 |
+| 3 | `dsh-chat-image-lightbox` | Full-screen image lightbox, thumbnail grid, TIFF/HEIC transcoding, delivery rule | `suite-chat-image-lightbox` | [loyalchiiina/dsh-chat-image-lightbox](https://github.com/loyalchiiina/dsh-chat-image-lightbox) · ⭐ 2 |
+| 4 | `dsh-console-sentinel` | Windows console-window sentinel: preview-then-close, whitelist, solver protection | `suite-console-sentinel` | [loyalchiiina/dsh-console-sentinel](https://github.com/loyalchiiina/dsh-console-sentinel) · ⭐ 0 |
+| 5 | `dsh-deepseek-web-free` | Unofficial DeepSeek Web provider + embedded web panel | `suite-deepseek-web-free` | [loyalchiiina/dsh-deepseek-web-free](https://github.com/loyalchiiina/dsh-deepseek-web-free) · ⭐ 4 |
+| 6 | `dsh-font-enhancer` | Per-region font/colour/line-height DIY with presets and themes | `suite-font-enhancer` | [loyalchiiina/dsh-font-enhancer](https://github.com/loyalchiiina/dsh-font-enhancer) · ⭐ 5 |
+| 7 | `dsh-lit-fetch` | Literature search + PDF download (Crossref/OpenAlex/Sci-Hub/Unpaywall) | `suite-lit-fetch` | [loyalchiiina/dsh-lit-fetch](https://github.com/loyalchiiina/dsh-lit-fetch) · ⭐ 1 |
+| 8 | `dsh-skill-browser` | Browse, search and govern the local skill library | `suite-skill-browser` | [loyalchiiina/dsh-skill-browser](https://github.com/loyalchiiina/dsh-skill-browser) · ⭐ 1 |
+| 9 | `dsh-agent-team-auto-orchestrator` | Team-orchestration law injection plus a tool-level gate | `suite-agent-team-auto-orchestrator` | [loyalchiiina/dsh-agent-team-auto-orchestrator](https://github.com/loyalchiiina/dsh-agent-team-auto-orchestrator) · ⭐ 2 |
+| 10 | `dsh-todo-float-ball` | Floating todo progress ring and list for the current session | `suite-todo-float-ball` | [loyalchiiina/dsh-todo-float-ball](https://github.com/loyalchiiina/dsh-todo-float-ball) · ⭐ 1 |
+| 11 | `dsh-voice-alert` | Spoken "done / failed" alerts at turn end, 20 built-in sounds | `suite-voice-alert` | [loyalchiiina/dsh-voice-alert](https://github.com/loyalchiiina/dsh-voice-alert) · ⭐ 2 |
+| 12 | `dsh-archive-favorites-forge` | Favourite, batch-archive, export conversations; guarded deletion | `suite-archive-favorites-forge` | [loyalchiiina/dsh-archive-favorites-forge](https://github.com/loyalchiiina/dsh-archive-favorites-forge) · ⭐ 1 |
+| 13 | `dsh-model-fold` | Three-column cascade model picker with per-model liveness probing | `suite-model-fold` | [loyalchiiina/dsh-model-fold](https://github.com/loyalchiiina/dsh-model-fold) · ⭐ 3 |
+| 14 | `dsh-schedule-calendar` | Schedule centre: calendar, multi-city weather, holidays, reminders | `suite-schedule-calendar` | [loyalchiiina/dsh-schedule-calendar](https://github.com/loyalchiiina/dsh-schedule-calendar) · ⭐ 0 |
+| 15 | `dsh-sidebar-media-player` | Sidebar audio/video player with Range-206 seeking, spectrum, pitch, subtitles/lyrics | `suite-sidebar-media-player` | [loyalchiiina/dsh-sidebar-media-player](https://github.com/loyalchiiina/dsh-sidebar-media-player) · ⭐ 0 |
 
-All 14 child packages are resolved from **published npm versions** (caret ranges); the bundle carries no `link:` / `file:` dependencies.
+> Star counts are a 2026-11-12 snapshot; click a repository link to star it.
+All 15 child packages are resolved from **published npm versions** (caret ranges); the bundle carries no `link:` / `file:` dependencies.
 
 ## Install
 
@@ -62,4 +66,4 @@ The bundle ships **no config overrides**; every child runs its own defaults. Add
 5. One entry per component, `name` = the child package name; no paths, no version pins.
 6. All JSON/YAML/JS files are UTF-8 **without BOM**.
 
-Status: `0.1.1`, published to npm and GitHub. MIT licensed.
+Status: `0.2.0`, published to npm and GitHub. MIT licensed.

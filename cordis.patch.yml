@@ -1,7 +1,7 @@
 # dsh-loyalchiiina-plugin-pack — 聚合 bundle 层（dsh.bundle.patch 指向本文件）
 #
 # 本包只做「按名挂载」：lib/index.js 只有 `export {}`，自身不注册任何服务、
-# 工具、路由或 UI；所有行为都来自下面 insert 的 14 个独立子包。
+# 工具、路由或 UI；所有行为都来自下面 insert 的 15 个独立子包。
 #
 # ── 两条硬约束 ────────────────────────────────────────────────────────────
 # 1) entry id 统一加 `suite-` 前缀。子包自带的 cordis.patch.yml 用的 id 就是
@@ -18,7 +18,14 @@
 #    deepseek-web，属于「替用户做选择」，聚合包不接管默认模型。
 # b) `deepseek-web-free-tui`（name: dsh-deepseek-web-free/tui）：终端 UI 半边，
 #    桌面端 / Web 端不需要；需要 TUI 的人单独装 dsh-deepseek-web-free。
-# 因此本文件是 14 条 entry（一个组件一条），不是 16 条。
+# 因此本文件是 15 条 entry（一个组件一条），不是 17 条。
+#
+# ── 本地私有组件区（本地第 16 条，公开包里不存在）──────────────────────────
+# `suite-skill-guard`（name: dsh-skill-guard）是本机私有组件：源码不进 npm、
+# 也不写进 dependencies，只靠本目录下的 `node_modules/dsh-skill-guard` junction 解析。
+# 公开 npm 包仍是 15 条 —— 发布前必须先跑 `node scripts/strip-private.mjs`，
+# 由它生成剥离后的 `cordis.patch.public.yml` / `package.public.json`
+# （只写新文件，绝不覆盖本地这两个文件）。
 #
 # ── 层序（决定「组件开关」怎么写）─────────────────────────────────────────
 # 层顺序：bundle:* → user-patch → home-patch（后层按 id last-wins 覆盖）。
@@ -53,6 +60,16 @@
 
     - id: suite-agent-team-auto-orchestrator
       name: dsh-agent-team-auto-orchestrator
+      config:
+        injectLaw: true
+        enforceTeamGate: true
+        gateMaxStrikes: 4
+        gateMaxParallel: 10
+        gateDomains:
+          - fluent
+          - plugin
+          - dsh
+          - preset
 
     - id: suite-todo-float-ball
       name: dsh-todo-float-ball
@@ -68,3 +85,10 @@
 
     - id: suite-schedule-calendar
       name: dsh-schedule-calendar
+
+    - id: suite-sidebar-media-player
+      name: dsh-sidebar-media-player
+
+    # ── 本地私有组件（公开 npm 包由 scripts/strip-private.mjs 剥离本条）──
+    - id: suite-skill-guard
+      name: dsh-skill-guard

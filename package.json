@@ -1,7 +1,7 @@
 {
   "name": "dsh-loyalchiiina-plugin-pack",
-  "version": "0.1.1",
-  "description": "DSH 插件聚合 bundle：一次装齐 14 个独立插件（产物路径联动 / 浏览器中枢 / 图片灯箱 / 控制台哨兵 / DeepSeek Web 提供方 / 字体增强 / 轻量抓取 / 技能浏览器 / 智能体团队自动编排 / Todo 悬浮球 / 语音提醒 / 收藏归档 / 模型折叠 / 日程日历）。本包自身不含任何行为，只按名挂载子包。适配 DSH 内核 0.2.2-rc.1。 / Aggregates 14 standalone DSH plugins into one bundle; the bundle itself ships no behaviour and only mounts the child packages. Adapts the DSH kernel 0.2.2-rc.1.",
+  "version": "0.2.0",
+  "description": "DSH 插件聚合 bundle：一次装齐 15 个独立插件（产物路径联动 / 浏览器中枢 / 图片灯箱 / 控制台哨兵 / DeepSeek Web 提供方 / 字体增强 / 文献检索 / 技能浏览器 / 智能体团队自动编排 / Todo 悬浮球 / 语音提醒 / 收藏归档 / 模型折叠 / 日程日历 / 侧边栏媒体播放器）。本包自身不含任何行为，只按名挂载子包。适配 DSH 内核 0.2.2-rc.1。 / Aggregates 15 standalone DSH plugins into one bundle, including the sidebar media player; the bundle itself ships no behaviour and only mounts the child packages. Adapts the DSH kernel 0.2.2-rc.1.",
   "type": "module",
   "main": "lib/index.js",
   "icon": "./icon.svg",
@@ -12,6 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/loyalchiiina/dsh-loyalchiiina-plugin-pack.git"
   },
+  "homepage": "https://github.com/loyalchiiina/dsh-loyalchiiina-plugin-pack#readme",
+  "bugs": {
+    "url": "https://github.com/loyalchiiina/dsh-loyalchiiina-plugin-pack/issues"
+  },
+  "author": "loyalchiiina",
   "exports": {
     ".": "./lib/index.js",
     "./cordis.patch.yml": "./cordis.patch.yml",
@@ -51,18 +56,19 @@
     "@deepseek-ai/cordis": "^4.0.2"
   },
   "dependencies": {
-    "dsh-agent-team-auto-orchestrator": "^1.0.0",
-    "dsh-archive-favorites-forge": "^0.39.3",
-    "dsh-artifact-linker": "^0.4.6",
-    "dsh-browser-hub": "^0.2.1",
+    "dsh-agent-team-auto-orchestrator": "^1.4.0",
+    "dsh-archive-favorites-forge": "^0.42.1",
+    "dsh-artifact-linker": "^0.5.0",
+    "dsh-browser-hub": "^0.2.3",
     "dsh-chat-image-lightbox": "^1.9.3",
-    "dsh-console-sentinel": "^1.0.1",
-    "dsh-deepseek-web-free": "^1.0.36",
+    "dsh-console-sentinel": "^1.1.0",
+    "dsh-deepseek-web-free": "^1.0.38",
     "dsh-font-enhancer": "^1.5.5",
-    "dsh-lit-fetch": "^1.0.5",
-    "dsh-model-fold": "^1.0.0",
-    "dsh-schedule-calendar": "^0.4.0",
-    "dsh-skill-browser": "^2.0.2",
+    "dsh-lit-fetch": "^1.0.6",
+    "dsh-model-fold": "^1.0.3",
+    "dsh-schedule-calendar": "^0.4.3",
+    "dsh-sidebar-media-player": "^0.2.0",
+    "dsh-skill-browser": "^2.0.15",
     "dsh-todo-float-ball": "^0.14.7",
     "dsh-voice-alert": "^0.4.18"
   }

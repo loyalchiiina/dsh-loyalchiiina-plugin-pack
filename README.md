@@ -1,41 +1,45 @@
 # dsh-loyalchiiina-plugin-pack
 
-DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 14 个独立插件一起挂上，也可以只挑其中一个单独装。
+仓库：[loyalchiiina/dsh-loyalchiiina-plugin-pack](https://github.com/loyalchiiina/dsh-loyalchiiina-plugin-pack) · 欢迎 Star ⭐
+
+DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 个独立插件一起挂上，也可以只挑其中一个单独装。
 
 - 本包**自身不含任何行为**：`lib/index.js` 只有 `export {}`，不注册服务 / 工具 / 路由 / UI。
-- 全部功能来自 `cordis.patch.yml`（`dsh.bundle.patch`）里 `insert:` 的 14 个独立 npm 子包。
+- 全部功能来自 `cordis.patch.yml`（`dsh.bundle.patch`）里 `insert:` 的 15 个独立 npm 子包。
 - 适配 DSH 内核 `0.2.2-rc.1`。
 
 > 形态参考：官方 `@deepseek-ai/dsh-experimental-agent-team-profile`（同样是「bundle 包 = 一份 patch + 一份 dependencies」，`lib/index.js` 只有 `export {}`）。
 
 ---
 
-## 一、包含的 14 个组件
+## 一、包含的 15 个组件
 
-| # | 包名 | 作用（简述） | 聚合条目 id |
-|---|---|---|---|
-| 1 | `dsh-artifact-linker` | 产物路径联动：常驻注入「产物路径铁律」+ 正文文件名渲染成可点芯片（侧栏预览 / 系统默认程序打开 / 复制绝对路径） | `suite-artifact-linker` |
-| 2 | `dsh-browser-hub` | 侧边栏浏览器增强：搜索引擎选择、书签收藏、多级文件夹、导入 360/Chrome 书签 | `suite-browser-hub` |
-| 3 | `dsh-chat-image-lightbox` | 对话图片灯箱：全屏缩放/平移/下载/翻页、缩略图网格、TIFF·HEIC 转码、防盗链自动转存，并注入「图片投递铁律」 | `suite-chat-image-lightbox` |
-| 4 | `dsh-console-sentinel` | 控制台哨兵（Windows）：一键清理任务栏控制台窗口与空壳，预览后执行、持久白名单、DSH 宿主与 Fluent/MPI 求解器硬保护 | `suite-console-sentinel` |
-| 5 | `dsh-deepseek-web-free` | 非官方 DeepSeek 网页端提供方：把网页端当模型用 + 内嵌网页面板（侧栏标签 / 鲸鱼悬浮球） | `suite-deepseek-web-free` |
-| 6 | `dsh-font-enhancer` | 字体 DIY：「字」悬浮球 + 分区独立调字体/颜色/字号/行高，方案管理、8 款字体、130 款皮肤 | `suite-font-enhancer` |
-| 7 | `dsh-lit-fetch` | 学术文献检索与 PDF 下载：DOI(Crossref)·关键词(OpenAlex) 检索，8 个 Sci-Hub 镜像 + Unpaywall 兜底，生成批量获取清单 HTML | `suite-lit-fetch` |
-| 8 | `dsh-skill-browser` | 技能浏览器：把技能库变成可浏览/检索/治理的资产（浏览、调用台账、MCP 管理、快速上手 + 130 款皮肤） | `suite-skill-browser` |
-| 9 | `dsh-agent-team-auto-orchestrator` | 智能体团队自动编排：每轮常驻注入团队编排铁律 + 工具层硬门（只认真派活） | `suite-agent-team-auto-orchestrator` |
-| 10 | `dsh-todo-float-ball` | Todo 悬浮球：实时显示当前会话 `todo_write` 进度环与清单，可多会话并排、130 款共享皮肤 | `suite-todo-float-ball` |
-| 11 | `dsh-voice-alert` | 语音提醒：回合结束自动播报「完成 / 失败」，内置 20 个音效（零配置），可克隆音色 | `suite-voice-alert` |
-| 12 | `dsh-archive-favorites-forge` | 对话收藏与归档工坊：收藏任意会话、复制 session id 与 transcript 绝对路径、单条永久删除（带守卫）、按闲置 N 小时批量归档、过滤/导出清单 | `suite-archive-favorites-forge` |
-| 13 | `dsh-model-fold` | 三级级联模型面板：来源 / 模型 / 强度三列并排，识图与思考开关，逐模型真实测活 | `suite-model-fold` |
-| 14 | `dsh-schedule-calendar` | 日程中心：侧边栏日程表、多城市天气、节假日、提醒、工作待办、休息日与上下班倒计时 | `suite-schedule-calendar` |
+| # | 包名 | 作用（简述） | 聚合条目 id | GitHub / Star |
+|---|---|---|---|---|
+| 1 | `dsh-artifact-linker` | 产物路径联动：常驻注入「产物路径铁律」+ 正文文件名渲染成可点芯片（侧栏预览 / 系统默认程序打开 / 复制绝对路径） | `suite-artifact-linker` | [loyalchiiina/dsh-artifact-linker](https://github.com/loyalchiiina/dsh-artifact-linker) · ⭐ 2 |
+| 2 | `dsh-browser-hub` | 侧边栏浏览器增强：搜索引擎选择、书签收藏、多级文件夹、导入 360/Chrome 书签 | `suite-browser-hub` | [loyalchiiina/dsh-browser-hub](https://github.com/loyalchiiina/dsh-browser-hub) · ⭐ 1 |
+| 3 | `dsh-chat-image-lightbox` | 对话图片灯箱：全屏缩放/平移/下载/翻页、缩略图网格、TIFF·HEIC 转码、防盗链自动转存，并注入「图片投递铁律」 | `suite-chat-image-lightbox` | [loyalchiiina/dsh-chat-image-lightbox](https://github.com/loyalchiiina/dsh-chat-image-lightbox) · ⭐ 2 |
+| 4 | `dsh-console-sentinel` | 控制台哨兵（Windows）：一键清理任务栏控制台窗口与空壳，预览后执行、持久白名单、DSH 宿主与 Fluent/MPI 求解器硬保护 | `suite-console-sentinel` | [loyalchiiina/dsh-console-sentinel](https://github.com/loyalchiiina/dsh-console-sentinel) · ⭐ 0 |
+| 5 | `dsh-deepseek-web-free` | 非官方 DeepSeek 网页端提供方：把网页端当模型用 + 内嵌网页面板（侧栏标签 / 鲸鱼悬浮球） | `suite-deepseek-web-free` | [loyalchiiina/dsh-deepseek-web-free](https://github.com/loyalchiiina/dsh-deepseek-web-free) · ⭐ 4 |
+| 6 | `dsh-font-enhancer` | 字体 DIY：「字」悬浮球 + 分区独立调字体/颜色/字号/行高，方案管理、8 款字体、130 款皮肤 | `suite-font-enhancer` | [loyalchiiina/dsh-font-enhancer](https://github.com/loyalchiiina/dsh-font-enhancer) · ⭐ 5 |
+| 7 | `dsh-lit-fetch` | 学术文献检索与 PDF 下载：DOI(Crossref)·关键词(OpenAlex) 检索，8 个 Sci-Hub 镜像 + Unpaywall 兜底，生成批量获取清单 HTML | `suite-lit-fetch` | [loyalchiiina/dsh-lit-fetch](https://github.com/loyalchiiina/dsh-lit-fetch) · ⭐ 1 |
+| 8 | `dsh-skill-browser` | 技能浏览器：把技能库变成可浏览/检索/治理的资产（浏览、调用台账、MCP 管理、快速上手 + 130 款皮肤） | `suite-skill-browser` | [loyalchiiina/dsh-skill-browser](https://github.com/loyalchiiina/dsh-skill-browser) · ⭐ 1 |
+| 9 | `dsh-agent-team-auto-orchestrator` | 智能体团队自动编排：每轮常驻注入团队编排铁律 + 工具层硬门（只认真派活） | `suite-agent-team-auto-orchestrator` | [loyalchiiina/dsh-agent-team-auto-orchestrator](https://github.com/loyalchiiina/dsh-agent-team-auto-orchestrator) · ⭐ 2 |
+| 10 | `dsh-todo-float-ball` | Todo 悬浮球：实时显示当前会话 `todo_write` 进度环与清单，可多会话并排、130 款共享皮肤 | `suite-todo-float-ball` | [loyalchiiina/dsh-todo-float-ball](https://github.com/loyalchiiina/dsh-todo-float-ball) · ⭐ 1 |
+| 11 | `dsh-voice-alert` | 语音提醒：回合结束自动播报「完成 / 失败」，内置 20 个音效（零配置），可克隆音色 | `suite-voice-alert` | [loyalchiiina/dsh-voice-alert](https://github.com/loyalchiiina/dsh-voice-alert) · ⭐ 2 |
+| 12 | `dsh-archive-favorites-forge` | 对话收藏与归档工坊：收藏任意会话、复制 session id 与 transcript 绝对路径、单条永久删除（带守卫）、按闲置 N 小时批量归档、过滤/导出清单 | `suite-archive-favorites-forge` | [loyalchiiina/dsh-archive-favorites-forge](https://github.com/loyalchiiina/dsh-archive-favorites-forge) · ⭐ 1 |
+| 13 | `dsh-model-fold` | 三级级联模型面板：来源 / 模型 / 强度三列并排，识图与思考开关，逐模型真实测活 | `suite-model-fold` | [loyalchiiina/dsh-model-fold](https://github.com/loyalchiiina/dsh-model-fold) · ⭐ 3 |
+| 14 | `dsh-schedule-calendar` | 日程中心：侧边栏日程表、多城市天气、节假日、提醒、工作待办、休息日与上下班倒计时 | `suite-schedule-calendar` | [loyalchiiina/dsh-schedule-calendar](https://github.com/loyalchiiina/dsh-schedule-calendar) · ⭐ 0 |
+| 15 | `dsh-sidebar-media-player` | 侧边栏音视频播放器：统一播放 mp4/webm/mov/m4v/ogv 与 mp3/wav/flac/ogg/opus/m4a/aac，拖动进度条（Range 206）、实时频谱与音准、字幕/歌词 | `suite-sidebar-media-player` | [loyalchiiina/dsh-sidebar-media-player](https://github.com/loyalchiiina/dsh-sidebar-media-player) · ⭐ 0 |
 
-> 版本口径以 `package.json` 的 `dependencies` 为准：14 个子包全部取自 **npm 已发布版本**（caret 范围），不含任何 `link:` / `file:` 本地路径依赖。
+> Star 数为 2026-11-12 抓取快照；点仓库链接可直接 Star。
+> 版本口径以 `package.json` 的 `dependencies` 为准：15 个子包全部取自 **npm 已发布版本**（caret 范围），不含任何 `link:` / `file:` 本地路径依赖。
 
 ---
 
 ## 二、怎么装
 
-### 方式 A · 装整包（14 个一起）
+### 方式 A · 装整包（15 个一起）
 
 ```powershell
 # 只做依赖安装（不改任何 profile 配置）
@@ -92,7 +96,7 @@ pnpm add dsh-todo-float-ball
 
 **② 直接改本包 `cordis.patch.yml`** 给对应条目加 `disabled: true`（等价于「插件默认关闭」）。
 
-**调参**：本包**不写任何 `config:` 覆盖**，14 个组件一律跑各自默认值。要调参数，在 profile 层按 entry id 追加 `config:`，字段名参考各子包自己的 `cordis.patch.yml` / README。
+**调参**：本包**不写任何 `config:` 覆盖**，15 个组件一律跑各自默认值。要调参数，在 profile 层按 entry id 追加 `config:`，字段名参考各子包自己的 `cordis.patch.yml` / README。
 
 ---
 
@@ -100,8 +104,8 @@ pnpm add dsh-todo-float-ball
 
 ```
 dsh-loyalchiiina-plugin-pack/
-├── package.json          # dsh.bundle.patch + 14 个 dependencies
-├── cordis.patch.yml      # dsh.bundle.patch 指向它：- insert: 14 条 entry
+├── package.json          # dsh.bundle.patch + 15 个 dependencies
+├── cordis.patch.yml      # dsh.bundle.patch 指向它：- insert: 15 条 entry
 ├── lib/
 │   └── index.js          # export {} —— 聚合包不是插件
 ├── locale/
@@ -118,22 +122,22 @@ dsh-loyalchiiina-plugin-pack/
 
 1. **聚合包声明 `dsh.bundle.patch`**：`package.json` 的 `dsh.bundle.patch` 指向 `cordis.patch.yml`，DSH 依据它把 entry 插进 loader。缺这一项会被判 `declares no dsh.bundle`。
 2. **聚合包自己不是插件**：没有 `apply` / `inject`，`lib/index.js` 只有 `export {}`；聚合包本身不会被当成 entry 加载（它不出现在自己的 `insert:` 列表里）。
-3. **子包各自独立可装**：14 个子包都各自声明了 `dsh.bundle.patch`（这是它们能单独安装的前提）。所以「聚合」不等于「子包不能单独用」，也不等于要删掉子包的 bundle 声明。
+3. **子包各自独立可装**：15 个子包都各自声明了 `dsh.bundle.patch`（这是它们能单独安装的前提）。所以「聚合」不等于「子包不能单独用」，也不等于要删掉子包的 bundle 声明。
 4. **entry id 唯一且不与子包冲突**：子包自带 patch 的 id 就是**自己的包名**，所以本包统一用 `suite-<短名>`，任何情况下都不会与子包 id 相同，从根上避免 `duplicate loader entry id`。
-5. **一个组件一条 entry**：14 条 entry ↔ 14 个组件，`name` 一律写子包名（不写路径、不写版本号）。
+5. **一个组件一条 entry**：15 条 entry ↔ 15 个组件，`name` 一律写子包名（不写路径、不写版本号）。
 6. **无 BOM**：`package.json` / `cordis.patch.yml` / `lib/index.js` / locale 全部 UTF-8 **无 BOM**（BOM 会让 JSON/YAML 解析当场失败）。
 
 ---
 
 ## 六、版本策略
 
-- 聚合包自身版本 `0.1.1`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
+- 聚合包自身版本 `0.2.0`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
 - 聚合包**不锁死**子包版本：修 bug 直接 `pnpm update` 即可，不必等聚合包发版。
 - 子包出现 breaking change 时，聚合包升 **minor** 并在 CHANGELOG 写清影响。
 
 ## 七、状态与许可
 
-- 当前版本 `0.1.1`：已发布到 npm 与 GitHub。
+- 当前版本 `0.2.0`：已发布到 npm 与 GitHub。
 - License: MIT。
 
 ---
@@ -159,14 +163,14 @@ dsh-loyalchiiina-plugin-pack/
 
 ## English
 
-`dsh-loyalchiiina-plugin-pack` is an **aggregate bundle package** for DSH (DeepSeek Harness): install 14 standalone DSH plugins with one command, or pick any single one on its own.
+`dsh-loyalchiiina-plugin-pack` is an **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalone DSH plugins with one command, or pick any single one on its own.
 
 - The bundle itself ships **no behaviour**: `lib/index.js` is only `export {}` — no services, tools, routes or UI.
-- All functionality comes from the 14 child packages inserted by `cordis.patch.yml` (declared as `dsh.bundle.patch`).
+- All functionality comes from the 15 child packages inserted by `cordis.patch.yml` (declared as `dsh.bundle.patch`).
 - The bundle declares `dependencies` on published npm versions only (caret ranges), never `link:` / `file:` paths.
 - Every child package carries its own `dsh.bundle.patch`, so each one can still be installed and enabled independently.
 - Bundle entry ids use the `suite-<short-name>` prefix so they can never collide with a child package's own entry id (`duplicate loader entry id`).
-- No `config:` overrides are set here: all 14 components run their default configuration. Disable one by its entry id in the profile's `cordis.patch.yml`.
+- No `config:` overrides are set here: all 15 components run their default configuration. Disable one by its entry id in the profile's `cordis.patch.yml`.
 - Adapts DSH kernel `0.2.2-rc.1`.
 
 **Install**
@@ -193,5 +197,6 @@ Then list it in the profile's `dsh.profile.bundles` array so its `dsh.bundle.pat
 | 12 | `dsh-archive-favorites-forge` | Session favourites, transcript paths, guarded deletion, bulk archive by idle time | `suite-archive-favorites-forge` |
 | 13 | `dsh-model-fold` | Three-column cascading model panel with live per-model probes | `suite-model-fold` |
 | 14 | `dsh-schedule-calendar` | Sidebar calendar, multi-city weather, holidays, reminders, work todos, countdowns | `suite-schedule-calendar` |
+| 15 | `dsh-sidebar-media-player` | Sidebar audio/video player with Range-206 seeking, spectrum, pitch, subtitles/lyrics | `suite-sidebar-media-player` |
 
 See [README_EN.md](README_EN.md) for the full English version of this document. License: MIT.
