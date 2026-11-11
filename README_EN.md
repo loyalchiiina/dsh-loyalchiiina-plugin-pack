@@ -8,6 +8,8 @@ An **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalon
 - Everything comes from the 15 entries inserted by `cordis.patch.yml` (`dsh.bundle.patch`), each pointing at an independent npm child package.
 - Adapts the DSH kernel `0.2.2-rc.1`.
 
+> **Private component note:** the development copy also mounts a 16th private component, `dsh-skill-guard` (GitHub private, author-local only). It is **not published to npm and not included in the public install**; public users always get the 15 components above. An author-local detail page may show 16 while public users see 15 — this is expected.
+
 ## Components (15)
 
 | # | Package | What it does | Bundle entry id | GitHub / Star |
@@ -66,4 +68,4 @@ The bundle ships **no config overrides**; every child runs its own defaults. Add
 5. One entry per component, `name` = the child package name; no paths, no version pins.
 6. All JSON/YAML/JS files are UTF-8 **without BOM**.
 
-Status: `0.2.0`, published to npm and GitHub. MIT licensed.
+Status: `0.2.1`. MIT licensed.

@@ -263,7 +263,7 @@ function main() {
       const stageDir = join(args.outDir, 'stage')
       rmSync(stageDir, { recursive: true, force: true })
       mkdirSync(stageDir, { recursive: true })
-      for (const f of ['LICENSE', 'README.md', 'README_EN.md', 'icon.svg']) {
+      for (const f of ['LICENSE', 'CHANGELOG.md', 'README.md', 'README_EN.md', 'icon.svg']) {
         const src = join(PKG_ROOT, f)
         if (existsSync(src)) copyFileSync(src, join(stageDir, f))
       }

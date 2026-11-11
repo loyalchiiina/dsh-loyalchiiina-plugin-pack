@@ -10,6 +10,8 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 
 
 > 形态参考：官方 `@deepseek-ai/dsh-experimental-agent-team-profile`（同样是「bundle 包 = 一份 patch + 一份 dependencies」，`lib/index.js` 只有 `export {}`）。
 
+> **私有组件说明**：本仓库的开发副本里还挂了第 16 个私有组件 `dsh-skill-guard`（GitHub private，仅作者本机可用）。它**不发布到 npm，也不包含在公开安装包内**；公开用户安装到的始终是上表 15 个组件。因此作者本机详情页可能显示 16 个，公开用户看到 15 个，属预期差异。
+
 ---
 
 ## 一、包含的 15 个组件
@@ -131,13 +133,13 @@ dsh-loyalchiiina-plugin-pack/
 
 ## 六、版本策略
 
-- 聚合包自身版本 `0.2.0`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
+- 聚合包自身版本 `0.2.1`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
 - 聚合包**不锁死**子包版本：修 bug 直接 `pnpm update` 即可，不必等聚合包发版。
 - 子包出现 breaking change 时，聚合包升 **minor** 并在 CHANGELOG 写清影响。
 
 ## 七、状态与许可
 
-- 当前版本 `0.2.0`：已发布到 npm 与 GitHub。
+- 当前版本 `0.2.1`。
 - License: MIT。
 
 ---
