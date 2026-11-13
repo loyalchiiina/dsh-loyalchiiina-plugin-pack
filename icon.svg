@@ -1,12 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="DSH plugin suite">
+<svg width="36" height="36" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img" aria-label="DSH plugin suite">
+  <g transform="scale(0.5625)">
   <rect x="2" y="2" width="60" height="60" rx="14" fill="#3b5bdb"/>
-  <g fill="#ffffff" opacity="0.95">
-    <rect x="12" y="14" width="16" height="16" rx="3"/>
-    <rect x="22" y="24" width="16" height="16" rx="3" opacity="0.82"/>
-    <rect x="32" y="34" width="16" height="16" rx="3" opacity="0.64"/>
-  </g>
-  <g fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" opacity="0.9">
-    <path d="M20 22 L28 30"/>
-    <path d="M30 32 L38 40"/>
+    <g fill="#ffffff" opacity="0.95">
+      <rect x="12" y="14" width="16" height="16" rx="3"/>
+      <rect x="22" y="24" width="16" height="16" rx="3" opacity="0.82"/>
+      <rect x="32" y="34" width="16" height="16" rx="3" opacity="0.64"/>
+    </g>
+    <g fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" opacity="0.9">
+      <path d="M20 22 L28 30"/>
+      <path d="M30 32 L38 40"/>
+    </g>
   </g>
 </svg>

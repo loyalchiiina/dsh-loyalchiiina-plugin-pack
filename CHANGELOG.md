@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2 — 2026-11-13
+
+- 修复：`dsh-schedule-calendar` 依赖范围由 `^0.4.3` 改为 `^1.0.0`（0.x 的 `^` 只覆盖 0.4.x，装不到已发布的 1.0.x）。
+- 依赖范围：共调整 13 条 —— 12 条把 caret 下限提到能覆盖本机实测版本的下界；其余 2 条（`dsh-chat-image-lightbox` `^1.9.3`、`dsh-lit-fetch` `^1.0.6`）不变。
+- 仓库目录名由 `dsh-loyalchiiina-suite` 更名为 `dsh-loyalchiiina-plugin-pack`，与包名一致。
+
 ## 0.2.1 — 2026-11-12
 
 - 文档：在 README / README_EN / 插件描述中明确公开包只含 15 个公开组件。

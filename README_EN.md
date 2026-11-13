@@ -7,6 +7,7 @@ An **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalon
 - The bundle ships **no behaviour of its own** — `lib/index.js` is just `export {}`.
 - Everything comes from the 15 entries inserted by `cordis.patch.yml` (`dsh.bundle.patch`), each pointing at an independent npm child package.
 - Adapts the DSH kernel `0.2.2-rc.1`.
+- **Host prerequisite:** `dsh-browser-hub` declares `dsh-better-sidebar >= 0.20.0` in `peerDependencies`; several components in this bundle are sidebar components (browser hub / sidebar media player / skill browser / todo float ball / schedule calendar) and need `dsh-better-sidebar` installed in the host profile (measured locally at `0.31.1`). Without it nothing errors, but the sidebar entries simply do not appear.
 
 > **Private component note:** the development copy also mounts a 16th private component, `dsh-skill-guard` (GitHub private, author-local only). It is **not published to npm and not included in the public install**; public users always get the 15 components above. An author-local detail page may show 16 while public users see 15 — this is expected.
 
@@ -68,4 +69,4 @@ The bundle ships **no config overrides**; every child runs its own defaults. Add
 5. One entry per component, `name` = the child package name; no paths, no version pins.
 6. All JSON/YAML/JS files are UTF-8 **without BOM**.
 
-Status: `0.2.1`. MIT licensed.
+Status: `0.2.2`. MIT licensed.
