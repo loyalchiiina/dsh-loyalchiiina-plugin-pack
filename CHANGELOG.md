@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.5 — 2026-11-26
+
+- 成员插件更新跟进两处：`dsh-sidebar-media-player` `^1.0.1` → `^1.0.6`（1.0.6 主控行新增 VIP / 绿钻双跳过开关，效果图为无损 PNG 新版）；`dsh-console-sentinel` `^1.4.2` → `^1.4.3`（1.4.3 探测仅在设置面板打开期间运行，单次探测 ~9s → 1-2s）。
+- 其余 13 个依赖与 npm 最新版一致，维持不变；`cordis.patch.yml` 按设计不写版本 pin，公开 15 条 entry（`suite-` 前缀）不变。
+
 ## 0.2.4 — 2026-11-26
 
 - 本批全部子插件完成「减少卡顿」性能改造（拆除常驻定时器 / 降频 / document.hidden 门控 / 变化判据去重），聚合包依赖同步升到发布最新：`dsh-archive-favorites-forge ^1.0.3`、`dsh-browser-hub ^0.2.16`、`dsh-console-sentinel ^1.4.2`、`dsh-font-enhancer ^1.5.16`、`dsh-model-fold ^1.0.26`、`dsh-schedule-calendar ^1.1.27`、`dsh-sidebar-media-player ^1.0.1`、`dsh-todo-float-ball ^1.0.1`、`dsh-voice-alert ^0.4.29`（其余 6 条无新版，维持不变）。

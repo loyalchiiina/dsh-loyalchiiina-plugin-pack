@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "DSH Plugin Pack (loyalchiiina) v0.2.4",
-    "description": "Installs 15 DSH plugins in one bundle (current version 0.2.4): artifact path linker, browser hub, chat image lightbox, console sentinel, DeepSeek Web provider, font enhancer, literature fetch, skill browser, agent-team auto orchestrator, todo float ball, voice alert, archive & favourites forge, model fold, schedule calendar, sidebar media player. Adapts the DSH kernel 0.2.2-rc.1 / 0.2.3. The public package ships the 15 public components only; a private dsh-skill-guard exists only on the author's machine and is not shipped."
+    "title": "DSH Plugin Pack (loyalchiiina) v0.2.5",
+    "description": "Installs 15 DSH plugins in one bundle (current version 0.2.5): artifact path linker, browser hub, chat image lightbox, console sentinel, DeepSeek Web provider, font enhancer, literature fetch, skill browser, agent-team auto orchestrator, todo float ball, voice alert, archive & favourites forge, model fold, schedule calendar, sidebar media player. Adapts the DSH kernel 0.2.2-rc.1 / 0.2.3. The public package ships the 15 public components only; a private dsh-skill-guard exists only on the author's machine and is not shipped."
   }
 }

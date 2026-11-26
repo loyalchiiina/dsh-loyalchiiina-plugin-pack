@@ -7,7 +7,7 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 
 - 本包**自身不含任何行为**：`lib/index.js` 只有 `export {}`，不注册服务 / 工具 / 路由 / UI。
 - 全部功能来自 `cordis.patch.yml`（`dsh.bundle.patch`）里 `insert:` 的 15 个独立 npm 子包。
 - 适配 DSH 内核 `0.2.2-rc.1` / `0.2.3`。
-- 当前版本 `0.2.4`。
+- 当前版本 `0.2.5`。
 - **前置依赖（宿主插件）**：`dsh-browser-hub` 在 `peerDependencies` 里声明 `dsh-better-sidebar >= 0.20.0`；本包多个组件是侧边栏组件（浏览器中枢 / 侧边栏播放器 / 技能浏览器 / Todo 悬浮球 / 日程日历），需要宿主 profile 已装 `dsh-better-sidebar`（本机实测 `0.31.1`）。未装时不会报错，但侧栏入口不会出现。
 
 > 形态参考：官方 `@deepseek-ai/dsh-experimental-agent-team-profile`（同样是「bundle 包 = 一份 patch + 一份 dependencies」，`lib/index.js` 只有 `export {}`）。
@@ -159,13 +159,13 @@ dsh-loyalchiiina-plugin-pack/
 
 ## 六、版本策略
 
-- 聚合包自身版本 `0.2.4`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
+- 聚合包自身版本 `0.2.5`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
 - 聚合包**不锁死**子包版本：修 bug 直接 `pnpm update` 即可，不必等聚合包发版。
 - 子包出现 breaking change 时，聚合包升 **minor** 并在 CHANGELOG 写清影响。
 
 ## 七、状态与许可
 
-- 当前版本 `0.2.4`。
+- 当前版本 `0.2.5`。
 - License: MIT。
 
 ---
@@ -199,7 +199,7 @@ dsh-loyalchiiina-plugin-pack/
 - Every child package carries its own `dsh.bundle.patch`, so each one can still be installed and enabled independently.
 - Bundle entry ids use the `suite-<short-name>` prefix so they can never collide with a child package's own entry id (`duplicate loader entry id`). Each entry has both an `id` (`suite-skill-browser`, the mount entry id) and a `name` (`dsh-skill-browser`, the real package); the detail page therefore shows two rows per component — expected, not a duplicate install. Disable one by its `id` in the profile-level `cordis.patch.yml`.
 - No `config:` overrides are set here: all 15 components run their default configuration. Disable one by its entry id in the profile's `cordis.patch.yml`.
-- Adapts DSH kernel `0.2.2-rc.1` / `0.2.3`; current version `0.2.4`. This batch also carries the "reduce lag" pass (resident timers split out / lower frequency / `document.hidden` gating / change-based de-duplication); see `CHANGELOG.md`.
+- Adapts DSH kernel `0.2.2-rc.1` / `0.2.3`; current version `0.2.5`. This batch also carries the "reduce lag" pass (resident timers split out / lower frequency / `document.hidden` gating / change-based de-duplication); see `CHANGELOG.md`.
 
 **Install**
 
