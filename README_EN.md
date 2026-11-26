@@ -6,7 +6,8 @@ An **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalon
 
 - The bundle ships **no behaviour of its own** — `lib/index.js` is just `export {}`.
 - Everything comes from the 15 entries inserted by `cordis.patch.yml` (`dsh.bundle.patch`), each pointing at an independent npm child package.
-- Adapts the DSH kernel `0.2.2-rc.1`.
+- Adapts the DSH kernel `0.2.2-rc.1` / `0.2.3`.
+- Current version `0.2.4`.
 - **Host prerequisite:** `dsh-browser-hub` declares `dsh-better-sidebar >= 0.20.0` in `peerDependencies`; several components in this bundle are sidebar components (browser hub / sidebar media player / skill browser / todo float ball / schedule calendar) and need `dsh-better-sidebar` installed in the host profile (measured locally at `0.31.1`). Without it nothing errors, but the sidebar entries simply do not appear.
 
 > **Private component note:** the development copy also mounts a 16th private component, `dsh-skill-guard` (GitHub private, author-local only). It is **not published to npm and not included in the public install**; public users always get the 15 components above. An author-local detail page may show 16 while public users see 15 — this is expected.
@@ -33,6 +34,24 @@ An **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalon
 
 > Star counts are a 2026-11-12 snapshot; click a repository link to star it.
 All 15 child packages are resolved from **published npm versions** (caret ranges); the bundle carries no `link:` / `file:` dependencies.
+The names in the Package column are the **real npm names**: `dsh-browser-hub` / `dsh-font-enhancer` / `dsh-model-fold` / `dsh-schedule-calendar` / `dsh-todo-float-ball` are published on npm under exactly those short names (an equivalent package name with identical content also exists on npm). The bundle references npm names directly and does not use `npm:` alias syntax.
+All 15 components in this batch received a "reduce lag" pass (resident timers split out / lower frequency / `document.hidden` gating / change-based de-duplication); see `CHANGELOG.md` for details.
+
+## Why you see two rows with a `suite-` prefix (not a duplicate install)
+
+Every entry in the bundle's `cordis.patch.yml` carries both an `id` and a `name`, and the two mean different things:
+
+- **`id`** (e.g. `suite-skill-browser`) is the **mount entry id** the bundle assigns, always prefixed with `suite-`. The prefix keeps it from colliding with a child package's own entry id or an id you hand-wrote in your profile — two layers inserting the same id triggers `duplicate loader entry id`, and the plugin-market update is then rolled back by the diff gate.
+- **`name`** (e.g. `dsh-skill-browser`) is the **real plugin package** that entry loads.
+
+So the detail page / loader list shows two rows for the same component (one `suite-*` mount entry, one real package name). That is expected, **not a duplicate install**.
+
+To turn a component off, write it by **`id`** in the **profile-level** `cordis.patch.yml` (see "Toggling a component" below):
+
+```yaml
+- id: suite-skill-browser
+  disabled: true
+```
 
 ## Install
 
@@ -69,4 +88,4 @@ The bundle ships **no config overrides**; every child runs its own defaults. Add
 5. One entry per component, `name` = the child package name; no paths, no version pins.
 6. All JSON/YAML/JS files are UTF-8 **without BOM**.
 
-Status: `0.2.2`. MIT licensed.
+Status: `0.2.4`. MIT licensed.

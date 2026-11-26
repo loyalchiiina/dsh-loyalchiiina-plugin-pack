@@ -1,0 +1,13 @@
+packages:
+  - .
+
+nodeLinker: hoisted
+autoInstallPeers: false
+minimumReleaseAgeExclude:
+  - '@loyalchiiina/*'
+  - 'dsh-*'
+  - 'rjwreejk*'
+  - 'dsh-browser-hub*'
+  - 'dsh-font-enhancer*'
+  - 'dsh-model-fold*'
+  - 'dsh-schedule-calendar*'

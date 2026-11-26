@@ -6,7 +6,8 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 
 
 - 本包**自身不含任何行为**：`lib/index.js` 只有 `export {}`，不注册服务 / 工具 / 路由 / UI。
 - 全部功能来自 `cordis.patch.yml`（`dsh.bundle.patch`）里 `insert:` 的 15 个独立 npm 子包。
-- 适配 DSH 内核 `0.2.2-rc.1`。
+- 适配 DSH 内核 `0.2.2-rc.1` / `0.2.3`。
+- 当前版本 `0.2.4`。
 - **前置依赖（宿主插件）**：`dsh-browser-hub` 在 `peerDependencies` 里声明 `dsh-better-sidebar >= 0.20.0`；本包多个组件是侧边栏组件（浏览器中枢 / 侧边栏播放器 / 技能浏览器 / Todo 悬浮球 / 日程日历），需要宿主 profile 已装 `dsh-better-sidebar`（本机实测 `0.31.1`）。未装时不会报错，但侧栏入口不会出现。
 
 > 形态参考：官方 `@deepseek-ai/dsh-experimental-agent-team-profile`（同样是「bundle 包 = 一份 patch + 一份 dependencies」，`lib/index.js` 只有 `export {}`）。
@@ -14,6 +15,10 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 
 > **私有组件说明**：本仓库的开发副本里还挂了第 16 个私有组件 `dsh-skill-guard`（GitHub private，仅作者本机可用）。它**不发布到 npm，也不包含在公开安装包内**；公开用户安装到的始终是上表 15 个组件。因此作者本机详情页可能显示 16 个，公开用户看到 15 个，属预期差异。
 
 ---
+
+> **为什么没有市场截图**：本包是「插件包（聚合包）」，本身没有界面 —— 它只声明 15 个子插件，让它们一次装好。截图请看各子插件自己的仓库；本包不需要也不提供截图。
+>
+> **Why there are no screenshots**: This package is an aggregate bundle with no UI of its own - it only declares the 15 sub-plugins so they install together. See each sub-plugin's repository for screenshots.
 
 ## 一、包含的 15 个组件
 
@@ -36,7 +41,27 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 
 | 15 | `dsh-sidebar-media-player` | 侧边栏音视频播放器：统一播放 mp4/webm/mov/m4v/ogv 与 mp3/wav/flac/ogg/opus/m4a/aac，拖动进度条（Range 206）、实时频谱与音准、字幕/歌词 | `suite-sidebar-media-player` | [loyalchiiina/dsh-sidebar-media-player](https://github.com/loyalchiiina/dsh-sidebar-media-player) · ⭐ 0 |
 
 > Star 数为 2026-11-12 抓取快照；点仓库链接可直接 Star。
-> 版本口径以 `package.json` 的 `dependencies` 为准：15 个子包全部取自 **npm 已发布版本**（caret 范围），不含任何 `link:` / `file:` 本地路径依赖。
+> 版本口径以 `package.json` 的 `dependencies` 为准：15 个子包全部取自 **npm 已发布版本**（caret 范围），不含任何 `link:` / `file:` 本地路径依赖。表中 `dsh-browser-hub` / `dsh-font-enhancer` / `dsh-model-fold` / `dsh-schedule-calendar` / `dsh-todo-float-ball` 五个短名就是 npm 真名（npm 上另有与之一一对应、内容完全相同的等价包名），本包统一按 npm 真名引用，不使用 `npm:` 别名写法。
+>
+> 本批 15 个组件都做过「减少卡顿」性能改造（拆常驻定时器 / 降频 / `document.hidden` 门控 / 变化判据去重），细节见 `CHANGELOG.md`。
+
+---
+
+### 为什么界面上会出现 `suite-` 前缀的两行（不是重复安装）
+
+聚合包 `cordis.patch.yml` 里每条 entry 同时有 `id` 和 `name` 两个字段，两者的身份完全不同：
+
+- **`id`**（如 `suite-skill-browser`）= 聚合包给这条挂载起的**条目号**，统一加 `suite-` 前缀。前缀的作用是避免与「子包自带的同 id 条目」「用户 profile 里手写的同 id 条目」撞车 —— 一旦同 id 被两个层各插一次，就会触发 `duplicate loader entry id`，插件市场更新时会被差分闸门回滚。
+- **`name`**（如 `dsh-skill-browser`）= 这条 entry **真正加载的插件包名**。
+
+所以插件详情 / 加载器列表里会同一组件显示两行（一行 `suite-*` 挂载条目，一行真实包名），这是**正常现象，不是重复安装**。
+
+想关掉某个组件，在 **profile 级** `cordis.patch.yml` 里按 **`id`** 写（见下文「三、组件开关」）：
+
+```yaml
+- id: suite-skill-browser
+  disabled: true
+```
 
 ---
 
@@ -134,13 +159,13 @@ dsh-loyalchiiina-plugin-pack/
 
 ## 六、版本策略
 
-- 聚合包自身版本 `0.2.2`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
+- 聚合包自身版本 `0.2.4`；子包用 **caret 范围**（`^x.y.z`），允许补丁级更新。
 - 聚合包**不锁死**子包版本：修 bug 直接 `pnpm update` 即可，不必等聚合包发版。
 - 子包出现 breaking change 时，聚合包升 **minor** 并在 CHANGELOG 写清影响。
 
 ## 七、状态与许可
 
-- 当前版本 `0.2.2`。
+- 当前版本 `0.2.4`。
 - License: MIT。
 
 ---
@@ -172,9 +197,9 @@ dsh-loyalchiiina-plugin-pack/
 - All functionality comes from the 15 child packages inserted by `cordis.patch.yml` (declared as `dsh.bundle.patch`).
 - The bundle declares `dependencies` on published npm versions only (caret ranges), never `link:` / `file:` paths.
 - Every child package carries its own `dsh.bundle.patch`, so each one can still be installed and enabled independently.
-- Bundle entry ids use the `suite-<short-name>` prefix so they can never collide with a child package's own entry id (`duplicate loader entry id`).
+- Bundle entry ids use the `suite-<short-name>` prefix so they can never collide with a child package's own entry id (`duplicate loader entry id`). Each entry has both an `id` (`suite-skill-browser`, the mount entry id) and a `name` (`dsh-skill-browser`, the real package); the detail page therefore shows two rows per component — expected, not a duplicate install. Disable one by its `id` in the profile-level `cordis.patch.yml`.
 - No `config:` overrides are set here: all 15 components run their default configuration. Disable one by its entry id in the profile's `cordis.patch.yml`.
-- Adapts DSH kernel `0.2.2-rc.1`.
+- Adapts DSH kernel `0.2.2-rc.1` / `0.2.3`; current version `0.2.4`. This batch also carries the "reduce lag" pass (resident timers split out / lower frequency / `document.hidden` gating / change-based de-duplication); see `CHANGELOG.md`.
 
 **Install**
 

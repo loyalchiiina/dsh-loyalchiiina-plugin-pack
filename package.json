@@ -1,7 +1,7 @@
 {
   "name": "dsh-loyalchiiina-plugin-pack",
-  "version": "0.2.2",
-  "description": "DSH 插件聚合 bundle：一次装齐 15 个独立插件（产物路径联动 / 浏览器中枢 / 图片灯箱 / 控制台哨兵 / DeepSeek Web 提供方 / 字体增强 / 文献检索 / 技能浏览器 / 智能体团队自动编排 / Todo 悬浮球 / 语音提醒 / 收藏归档 / 模型折叠 / 日程日历 / 侧边栏媒体播放器）。本包自身不含任何行为，只按名挂载子包。适配 DSH 内核 0.2.2-rc.1。 / Aggregates 15 standalone DSH plugins into one bundle, including the sidebar media player; the bundle itself ships no behaviour and only mounts the child packages. Adapts the DSH kernel 0.2.2-rc.1. 公开安装包仅含 15 个公开组件；作者本机另有私有 dsh-skill-guard，不随包发布。 / The public package ships the 15 public components only; a private dsh-skill-guard exists only on the author's machine and is not shipped.",
+  "version": "0.2.4",
+  "description": "DSH 插件聚合 bundle：一次装齐 15 个独立插件（产物路径联动 / 浏览器中枢 / 图片灯箱 / 控制台哨兵 / DeepSeek Web 提供方 / 字体增强 / 文献检索 / 技能浏览器 / 智能体团队自动编排 / Todo 悬浮球 / 语音提醒 / 收藏归档 / 模型折叠 / 日程日历 / 侧边栏媒体播放器）。本包自身不含任何行为，只按名挂载子包。适配 DSH 内核 0.2.2-rc.1 / 0.2.3。 / Aggregates 15 standalone DSH plugins into one bundle, including the sidebar media player; the bundle itself ships no behaviour and only mounts the child packages. Adapts the DSH kernel 0.2.2-rc.1 / 0.2.3. 公开安装包仅含 15 个公开组件；作者本机另有私有 dsh-skill-guard，不随包发布。 / The public package ships the 15 public components only; a private dsh-skill-guard exists only on the author's machine and is not shipped. Aggregate plugin bundle; no UI of its own, so no screenshots.",
   "type": "module",
   "main": "lib/index.js",
   "icon": "./icon.svg",
@@ -59,20 +59,20 @@
     "@deepseek-ai/cordis": "^4.0.2"
   },
   "dependencies": {
-    "dsh-agent-team-auto-orchestrator": "^1.5.10",
-    "dsh-archive-favorites-forge": "^0.43.1",
-    "dsh-artifact-linker": "^0.5.2",
-    "dsh-browser-hub": "^0.2.7",
-    "dsh-chat-image-lightbox": "^1.9.3",
-    "dsh-console-sentinel": "^1.3.0",
-    "dsh-deepseek-web-free": "^1.0.40",
-    "dsh-font-enhancer": "^1.5.13",
-    "dsh-lit-fetch": "^1.0.6",
-    "dsh-model-fold": "^1.0.4",
-    "dsh-schedule-calendar": "^1.0.0",
-    "dsh-sidebar-media-player": "^0.2.4",
-    "dsh-skill-browser": "^2.2.5",
-    "dsh-todo-float-ball": "^0.14.10",
-    "dsh-voice-alert": "^0.4.26"
+    "dsh-agent-team-auto-orchestrator": "^1.5.14",
+    "dsh-archive-favorites-forge": "^1.0.3",
+    "dsh-artifact-linker": "^0.5.8",
+    "dsh-browser-hub": "^0.2.16",
+    "dsh-chat-image-lightbox": "^1.9.6",
+    "dsh-console-sentinel": "^1.4.2",
+    "dsh-deepseek-web-free": "^1.0.45",
+    "dsh-font-enhancer": "^1.5.16",
+    "dsh-lit-fetch": "^1.0.8",
+    "dsh-model-fold": "^1.0.26",
+    "dsh-schedule-calendar": "^1.1.27",
+    "dsh-sidebar-media-player": "^1.0.1",
+    "dsh-skill-browser": "^2.2.49",
+    "dsh-todo-float-ball": "^1.0.1",
+    "dsh-voice-alert": "^0.4.29"
   }
 }
