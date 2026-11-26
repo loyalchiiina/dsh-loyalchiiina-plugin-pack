@@ -2,25 +2,25 @@
 
 仓库：[loyalchiiina/dsh-loyalchiiina-plugin-pack](https://github.com/loyalchiiina/dsh-loyalchiiina-plugin-pack) · 欢迎 Star ⭐
 
-DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 个独立插件一起挂上，也可以只挑其中一个单独装。
+DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 16 个独立插件一起挂上，也可以只挑其中一个单独装。
 
 - 本包**自身不含任何行为**：`lib/index.js` 只有 `export {}`，不注册服务 / 工具 / 路由 / UI。
-- 全部功能来自 `cordis.patch.yml`（`dsh.bundle.patch`）里 `insert:` 的 15 个独立 npm 子包。
+- 全部功能来自 `cordis.patch.yml`（`dsh.bundle.patch`）里 `insert:` 的 16 个独立 npm 子包。
 - 适配 DSH 内核 `0.2.2-rc.1` / `0.2.3`。
 - 当前版本 `0.2.5`。
 - **前置依赖（宿主插件）**：`dsh-browser-hub` 在 `peerDependencies` 里声明 `dsh-better-sidebar >= 0.20.0`；本包多个组件是侧边栏组件（浏览器中枢 / 侧边栏播放器 / 技能浏览器 / Todo 悬浮球 / 日程日历），需要宿主 profile 已装 `dsh-better-sidebar`（本机实测 `0.31.1`）。未装时不会报错，但侧栏入口不会出现。
 
 > 形态参考：官方 `@deepseek-ai/dsh-experimental-agent-team-profile`（同样是「bundle 包 = 一份 patch + 一份 dependencies」，`lib/index.js` 只有 `export {}`）。
 
-> **私有组件说明**：本仓库的开发副本里还挂了第 16 个私有组件 `dsh-skill-guard`（GitHub private，仅作者本机可用）。它**不发布到 npm，也不包含在公开安装包内**；公开用户安装到的始终是上表 15 个组件。因此作者本机详情页可能显示 16 个，公开用户看到 15 个，属预期差异。
+> **私有组件说明**：本仓库的开发副本里还挂了第 17 个私有组件 `dsh-skill-guard`（GitHub private，仅作者本机可用）。它**不发布到 npm，也不包含在公开安装包内**；公开用户安装到的始终是上表 16 个组件。因此作者本机详情页可能显示 17 个，公开用户看到 16 个，属预期差异。
 
 ---
 
-> **为什么没有市场截图**：本包是「插件包（聚合包）」，本身没有界面 —— 它只声明 15 个子插件，让它们一次装好。截图请看各子插件自己的仓库；本包不需要也不提供截图。
+> **为什么没有市场截图**：本包是「插件包（聚合包）」，本身没有界面 —— 它只声明 16 个子插件，让它们一次装好。截图请看各子插件自己的仓库；本包不需要也不提供截图。
 >
-> **Why there are no screenshots**: This package is an aggregate bundle with no UI of its own - it only declares the 15 sub-plugins so they install together. See each sub-plugin's repository for screenshots.
+> **Why there are no screenshots**: This package is an aggregate bundle with no UI of its own - it only declares the 16 sub-plugins so they install together. See each sub-plugin's repository for screenshots.
 
-## 一、包含的 15 个组件
+## 一、包含的 16 个组件
 
 | # | 包名 | 作用（简述） | 聚合条目 id | GitHub / Star |
 |---|---|---|---|---|
@@ -39,11 +39,12 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 
 | 13 | `dsh-model-fold` | 三级级联模型面板：来源 / 模型 / 强度三列并排，识图与思考开关，逐模型真实测活 | `suite-model-fold` | [loyalchiiina/dsh-model-fold](https://github.com/loyalchiiina/dsh-model-fold) · ⭐ 3 |
 | 14 | `dsh-schedule-calendar` | 日程中心：侧边栏日程表、多城市天气、节假日、提醒、工作待办、休息日与上下班倒计时 | `suite-schedule-calendar` | [loyalchiiina/dsh-schedule-calendar](https://github.com/loyalchiiina/dsh-schedule-calendar) · ⭐ 0 |
 | 15 | `dsh-sidebar-media-player` | 侧边栏音视频播放器：统一播放 mp4/webm/mov/m4v/ogv 与 mp3/wav/flac/ogg/opus/m4a/aac，拖动进度条（Range 206）、实时频谱与音准、字幕/歌词 | `suite-sidebar-media-player` | [loyalchiiina/dsh-sidebar-media-player](https://github.com/loyalchiiina/dsh-sidebar-media-player) · ⭐ 0 |
+| 16 | `dsh-piliaurora-wall` | PiliAurora 视频墙：右侧边栏面板页签，一键搜索 B 站视频并行打开多个独立播放窗口并自动网格排列，支持声音开关、全部隐藏/显示、下一批与自动连播 | `suite-piliaurora-wall` | [loyalchiiina/dsh-piliaurora-wall](https://github.com/loyalchiiina/dsh-piliaurora-wall) · ⭐ 0 |
 
 > Star 数为 2026-11-12 抓取快照；点仓库链接可直接 Star。
-> 版本口径以 `package.json` 的 `dependencies` 为准：15 个子包全部取自 **npm 已发布版本**（caret 范围），不含任何 `link:` / `file:` 本地路径依赖。表中 `dsh-browser-hub` / `dsh-font-enhancer` / `dsh-model-fold` / `dsh-schedule-calendar` / `dsh-todo-float-ball` 五个短名就是 npm 真名（npm 上另有与之一一对应、内容完全相同的等价包名），本包统一按 npm 真名引用，不使用 `npm:` 别名写法。
+> 版本口径以 `package.json` 的 `dependencies` 为准：16 个子包全部取自 **npm 已发布版本**（caret 范围），不含任何 `link:` / `file:` 本地路径依赖。
 >
-> 本批 15 个组件都做过「减少卡顿」性能改造（拆常驻定时器 / 降频 / `document.hidden` 门控 / 变化判据去重），细节见 `CHANGELOG.md`。
+> 本批组件都做过「减少卡顿」性能改造（拆常驻定时器 / 降频 / `document.hidden` 门控 / 变化判据去重），细节见 `CHANGELOG.md`。
 
 ---
 
@@ -67,7 +68,7 @@ DSH（DeepSeek Harness）**插件聚合 bundle 包**：一条安装命令把 15 
 
 ## 二、怎么装
 
-### 方式 A · 装整包（15 个一起）
+### 方式 A · 装整包（16 个一起）
 
 ```powershell
 # 只做依赖安装（不改任何 profile 配置）
@@ -124,7 +125,7 @@ pnpm add dsh-todo-float-ball
 
 **② 直接改本包 `cordis.patch.yml`** 给对应条目加 `disabled: true`（等价于「插件默认关闭」）。
 
-**调参**：本包**不写任何 `config:` 覆盖**，15 个组件一律跑各自默认值。要调参数，在 profile 层按 entry id 追加 `config:`，字段名参考各子包自己的 `cordis.patch.yml` / README。
+**调参**：本包**不写任何 `config:` 覆盖**，16 个组件一律跑各自默认值。要调参数，在 profile 层按 entry id 追加 `config:`，字段名参考各子包自己的 `cordis.patch.yml` / README。
 
 ---
 
@@ -132,8 +133,8 @@ pnpm add dsh-todo-float-ball
 
 ```
 dsh-loyalchiiina-plugin-pack/
-├── package.json          # dsh.bundle.patch + 15 个 dependencies
-├── cordis.patch.yml      # dsh.bundle.patch 指向它：本地 16 条 entry（公开包剥离后 15 条）
+├── package.json          # dsh.bundle.patch + 16 个 dependencies
+├── cordis.patch.yml      # dsh.bundle.patch 指向它：本地 17 条 entry（公开包剥离后 16 条）
 ├── lib/
 │   └── index.js          # export {} —— 聚合包不是插件
 ├── locale/
@@ -150,9 +151,9 @@ dsh-loyalchiiina-plugin-pack/
 
 1. **聚合包声明 `dsh.bundle.patch`**：`package.json` 的 `dsh.bundle.patch` 指向 `cordis.patch.yml`，DSH 依据它把 entry 插进 loader。缺这一项会被判 `declares no dsh.bundle`。
 2. **聚合包自己不是插件**：没有 `apply` / `inject`，`lib/index.js` 只有 `export {}`；聚合包本身不会被当成 entry 加载（它不出现在自己的 `insert:` 列表里）。
-3. **子包各自独立可装**：15 个子包都各自声明了 `dsh.bundle.patch`（这是它们能单独安装的前提）。所以「聚合」不等于「子包不能单独用」，也不等于要删掉子包的 bundle 声明。
+3. **子包各自独立可装**：16 个子包都各自声明了 `dsh.bundle.patch`（这是它们能单独安装的前提）。所以「聚合」不等于「子包不能单独用」，也不等于要删掉子包的 bundle 声明。
 4. **entry id 唯一且不与子包冲突**：子包自带 patch 的 id 就是**自己的包名**，所以本包统一用 `suite-<短名>`，任何情况下都不会与子包 id 相同，从根上避免 `duplicate loader entry id`。
-5. **一个组件一条 entry**：15 条 entry ↔ 15 个组件，`name` 一律写子包名（不写路径、不写版本号）。
+5. **一个组件一条 entry**：16 条 entry ↔ 16 个组件，`name` 一律写子包名（不写路径、不写版本号）。
 6. **无 BOM**：`package.json` / `cordis.patch.yml` / `lib/index.js` / locale 全部 UTF-8 **无 BOM**（BOM 会让 JSON/YAML 解析当场失败）。
 
 ---
@@ -191,14 +192,14 @@ dsh-loyalchiiina-plugin-pack/
 
 ## English
 
-`dsh-loyalchiiina-plugin-pack` is an **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalone DSH plugins with one command, or pick any single one on its own.
+`dsh-loyalchiiina-plugin-pack` is an **aggregate bundle package** for DSH (DeepSeek Harness): install 16 standalone DSH plugins with one command, or pick any single one on its own.
 
 - The bundle itself ships **no behaviour**: `lib/index.js` is only `export {}` — no services, tools, routes or UI.
-- All functionality comes from the 15 child packages inserted by `cordis.patch.yml` (declared as `dsh.bundle.patch`).
+- All functionality comes from the 16 child packages inserted by `cordis.patch.yml` (declared as `dsh.bundle.patch`).
 - The bundle declares `dependencies` on published npm versions only (caret ranges), never `link:` / `file:` paths.
 - Every child package carries its own `dsh.bundle.patch`, so each one can still be installed and enabled independently.
 - Bundle entry ids use the `suite-<short-name>` prefix so they can never collide with a child package's own entry id (`duplicate loader entry id`). Each entry has both an `id` (`suite-skill-browser`, the mount entry id) and a `name` (`dsh-skill-browser`, the real package); the detail page therefore shows two rows per component — expected, not a duplicate install. Disable one by its `id` in the profile-level `cordis.patch.yml`.
-- No `config:` overrides are set here: all 15 components run their default configuration. Disable one by its entry id in the profile's `cordis.patch.yml`.
+- No `config:` overrides are set here: all 16 components run their default configuration. Disable one by its entry id in the profile's `cordis.patch.yml`.
 - Adapts DSH kernel `0.2.2-rc.1` / `0.2.3`; current version `0.2.5`. This batch also carries the "reduce lag" pass (resident timers split out / lower frequency / `document.hidden` gating / change-based de-duplication); see `CHANGELOG.md`.
 
 **Install**
@@ -226,5 +227,6 @@ Then list it in the profile's `dsh.profile.bundles` array so its `dsh.bundle.pat
 | 13 | `dsh-model-fold` | Three-column cascading model panel with live per-model probes | `suite-model-fold` |
 | 14 | `dsh-schedule-calendar` | Sidebar calendar, multi-city weather, holidays, reminders, work todos, countdowns | `suite-schedule-calendar` |
 | 15 | `dsh-sidebar-media-player` | Sidebar audio/video player with Range-206 seeking, spectrum, pitch, subtitles/lyrics | `suite-sidebar-media-player` |
+| 16 | `dsh-piliaurora-wall` | PiliAurora video wall: right-sidebar panel tab, Bilibili search, multi-window grid, mute/hide/show, next batch, auto-play | `suite-piliaurora-wall` |
 
 See [README_EN.md](README_EN.md) for the full English version of this document. License: MIT.

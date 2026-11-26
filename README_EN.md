@@ -2,15 +2,15 @@
 
 Repository: [loyalchiiina/dsh-loyalchiiina-plugin-pack](https://github.com/loyalchiiina/dsh-loyalchiiina-plugin-pack) · Stars welcome ⭐
 
-An **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalone plugins in one go, or pick any single one on its own.
+An **aggregate bundle package** for DSH (DeepSeek Harness): install 16 standalone plugins in one go, or pick any single one on its own.
 
 - The bundle ships **no behaviour of its own** — `lib/index.js` is just `export {}`.
-- Everything comes from the 15 entries inserted by `cordis.patch.yml` (`dsh.bundle.patch`), each pointing at an independent npm child package.
+- Everything comes from the 16 entries inserted by `cordis.patch.yml` (`dsh.bundle.patch`), each pointing at an independent npm child package.
 - Adapts the DSH kernel `0.2.2-rc.1` / `0.2.3`.
 - Current version `0.2.5`.
 - **Host prerequisite:** `dsh-browser-hub` declares `dsh-better-sidebar >= 0.20.0` in `peerDependencies`; several components in this bundle are sidebar components (browser hub / sidebar media player / skill browser / todo float ball / schedule calendar) and need `dsh-better-sidebar` installed in the host profile (measured locally at `0.31.1`). Without it nothing errors, but the sidebar entries simply do not appear.
 
-> **Private component note:** the development copy also mounts a 16th private component, `dsh-skill-guard` (GitHub private, author-local only). It is **not published to npm and not included in the public install**; public users always get the 15 components above. An author-local detail page may show 16 while public users see 15 — this is expected.
+> **Private component note:** the development copy also mounts a 17th private component, `dsh-skill-guard` (GitHub private, author-local only). It is **not published to npm and not included in the public install**; public users always get the 16 components above. An author-local detail page may show 17 while public users see 16 — this is expected.
 
 ## Components (15)
 
@@ -31,11 +31,12 @@ An **aggregate bundle package** for DSH (DeepSeek Harness): install 15 standalon
 | 13 | `dsh-model-fold` | Three-column cascade model picker with per-model liveness probing | `suite-model-fold` | [loyalchiiina/dsh-model-fold](https://github.com/loyalchiiina/dsh-model-fold) · ⭐ 3 |
 | 14 | `dsh-schedule-calendar` | Schedule centre: calendar, multi-city weather, holidays, reminders | `suite-schedule-calendar` | [loyalchiiina/dsh-schedule-calendar](https://github.com/loyalchiiina/dsh-schedule-calendar) · ⭐ 0 |
 | 15 | `dsh-sidebar-media-player` | Sidebar audio/video player with Range-206 seeking, spectrum, pitch, subtitles/lyrics | `suite-sidebar-media-player` | [loyalchiiina/dsh-sidebar-media-player](https://github.com/loyalchiiina/dsh-sidebar-media-player) · ⭐ 0 |
+| 16 | `dsh-piliaurora-wall` | PiliAurora video wall: right-sidebar panel tab, one-click search Bilibili and open multiple independent player windows auto-arranged in a grid, with mute/hide/show, next batch and auto-play | `suite-piliaurora-wall` | [loyalchiiina/dsh-piliaurora-wall](https://github.com/loyalchiiina/dsh-piliaurora-wall) · ⭐ 0 |
 
 > Star counts are a 2026-11-12 snapshot; click a repository link to star it.
-All 15 child packages are resolved from **published npm versions** (caret ranges); the bundle carries no `link:` / `file:` dependencies.
+All 16 child packages are resolved from **published npm versions** (caret ranges); the bundle carries no `link:` / `file:` dependencies.
 The names in the Package column are the **real npm names**: `dsh-browser-hub` / `dsh-font-enhancer` / `dsh-model-fold` / `dsh-schedule-calendar` / `dsh-todo-float-ball` are published on npm under exactly those short names (an equivalent package name with identical content also exists on npm). The bundle references npm names directly and does not use `npm:` alias syntax.
-All 15 components in this batch received a "reduce lag" pass (resident timers split out / lower frequency / `document.hidden` gating / change-based de-duplication); see `CHANGELOG.md` for details.
+All components in this batch received a "reduce lag" pass (resident timers split out / lower frequency / `document.hidden` gating / change-based de-duplication); see `CHANGELOG.md` for details.
 
 ## Why you see two rows with a `suite-` prefix (not a duplicate install)
 

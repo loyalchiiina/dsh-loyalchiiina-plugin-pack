@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.6 — 2026-11-27
+
+- 新增第 16 个公开组件 `dsh-piliaurora-wall`（`^0.2.6`）：PiliAurora 视频墙，在右侧边栏以面板页签形式提供 B 站视频墙。`cordis.patch.yml` 加 `suite-piliaurora-wall` entry，公开包从 15 条扩到 16 条（本地含私有 `dsh-skill-guard` 共 17 条，发布前由 `scripts/strip-private.mjs --stage` 剥离）。
+- README / README_EN 组件表、总数、依赖清单同步更新为 16 个组件。
+
 ## 0.2.5 — 2026-11-26
 
 - 成员插件更新跟进两处：`dsh-sidebar-media-player` `^1.0.1` → `^1.0.6`（1.0.6 主控行新增 VIP / 绿钻双跳过开关，效果图为无损 PNG 新版）；`dsh-console-sentinel` `^1.4.2` → `^1.4.3`（1.4.3 探测仅在设置面板打开期间运行，单次探测 ~9s → 1-2s）。

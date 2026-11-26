@@ -89,6 +89,9 @@
     - id: suite-sidebar-media-player
       name: dsh-sidebar-media-player
 
+    - id: suite-piliaurora-wall
+      name: dsh-piliaurora-wall
+
     # ── 本地私有组件（公开 npm 包由 scripts/strip-private.mjs 剥离本条）──
     - id: suite-skill-guard
       name: dsh-skill-guard

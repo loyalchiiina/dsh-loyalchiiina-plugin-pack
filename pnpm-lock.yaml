@@ -24,8 +24,8 @@ importers:
         specifier: ^1.9.6
         version: 1.9.6
       dsh-console-sentinel:
-        specifier: ^1.4.2
-        version: 1.4.2
+        specifier: ^1.4.3
+        version: 1.4.3
       dsh-deepseek-web-free:
         specifier: ^1.0.45
         version: 1.0.45(bare-buffer@3.7.3)
@@ -38,12 +38,15 @@ importers:
       dsh-model-fold:
         specifier: ^1.0.26
         version: 1.0.26
+      dsh-piliaurora-wall:
+        specifier: ^0.2.6
+        version: 0.2.6
       dsh-schedule-calendar:
         specifier: ^1.1.27
         version: 1.1.27
       dsh-sidebar-media-player:
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.6
+        version: 1.0.6
       dsh-skill-browser:
         specifier: ^2.2.49
         version: 2.2.49
@@ -401,8 +404,8 @@ packages:
       '@deepseek-ai/cordis': ^4.0.2
       '@deepseek-ai/dsh': '>=0.1.7-0 <0.3.0'
 
-  dsh-console-sentinel@1.4.2:
-    resolution: {integrity: sha512-OFbJmTwKMr5yN6xfygiZ7JzMS/A8DV6a/2Nd7GKw9totqsXdEIG3U8MKJ10NW+51xzjDZ4WKImke2q8MupnAcQ==}
+  dsh-console-sentinel@1.4.3:
+    resolution: {integrity: sha512-zVDXjXDnk+wJUajEZhCp0gL6LRB2KwMhirjAxJovR3MeTfEQ84AInCalZYZbSgTenh5VEbWl8f1u+2WLhfy7nQ==}
     engines: {node: ^22.19.0 || >=24.0.0}
     peerDependencies:
       '@deepseek-ai/cordis': '>=4.0.2'
@@ -465,6 +468,10 @@ packages:
       '@deepseek-ai/cordis': ^4.0.2
       '@deepseek-ai/dsh': '>=0.1.7-rc.1'
 
+  dsh-piliaurora-wall@0.2.6:
+    resolution: {integrity: sha512-uHPUtHPNWxZDXO3MbhKplOeP+vNH3nN4ycT704Cnr+YE+uiZhI8QL2T4wBQE3rtpHf5iNb8LAQDpU4MJKAB25A==}
+    engines: {dsh: '>=0.2.2-0 <0.3.0', node: ^22.19.0 || >=24.0.0}
+
   dsh-schedule-calendar@1.1.27:
     resolution: {integrity: sha512-+dGUqz9AOQ6GowfPSeW1CEAm/1BFB3iAqZlKriKSS4sUFdM/y9dYCUXOECkRBQWywHMTsMUrH9LpMilSbI6XIg==}
     engines: {dsh: '>=0.2.2-0 <0.3.0', node: ^22.19.0 || >=24.0.0}
@@ -474,8 +481,8 @@ packages:
       '@deepseek-ai/dsh':
         optional: true
 
-  dsh-sidebar-media-player@1.0.1:
-    resolution: {integrity: sha512-EHBzR+wOb4l/SIb+rqNotZj68vp/SblmopStdRoDWQB+8SsMv2PxnwPvLH+TV6Vmhy9KGBCrJLUcV8nHyOFYRQ==}
+  dsh-sidebar-media-player@1.0.6:
+    resolution: {integrity: sha512-jKNVVNonFDQBSDocAU0YS2vBLLc8tz/fBC2XPkGrn1nxZrgQvqqKL1oIOUjFOu9p4id109tt5oHU4IXzji/vRA==}
     engines: {dsh: '>=0.2.2-rc.1', node: ^22.19.0 || >=24.0.0}
     peerDependencies:
       '@deepseek-ai/cordis': ^4.0.2
@@ -1106,7 +1113,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  dsh-console-sentinel@1.4.2: {}
+  dsh-console-sentinel@1.4.3: {}
 
   dsh-deepseek-web-free@1.0.45(bare-buffer@3.7.3):
     dependencies:
@@ -1126,13 +1133,15 @@ snapshots:
 
   dsh-model-fold@1.0.26: {}
 
+  dsh-piliaurora-wall@0.2.6: {}
+
   dsh-schedule-calendar@1.1.27:
     dependencies:
       imapflow: 2.12.2
       mailparser: 3.15.0
       solarlunar: 3.1.0
 
-  dsh-sidebar-media-player@1.0.1: {}
+  dsh-sidebar-media-player@1.0.6: {}
 
   dsh-skill-browser@2.2.49: {}
 
